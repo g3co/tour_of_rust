@@ -1,0 +1,56 @@
+<html lang="ie">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tur de Rust - Transferer Pruntat Data</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_ie.html">Tur de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_ie.html">Tabelle de contenete</a></span>
+            </div>
+            <div class="page">
+            <h1>Transferer Pruntat Data</h1>
+            <p>On posse curtmen resumar li regules de Rust pri referenties quam seque:</p>
+<ul>
+<li><strong>Un</strong> mutabil referentie es permisset, <strong>o</strong> multiplic non-mutabil referenties, <strong>ma ne ambi</strong></li>
+<li>Un referentie ne mey viver plu long quam su proprietario.</li>
+</ul>
+<p>To por li pluparte ne es un problema quande on transfere referenties a functiones.</p>
+<p>Detallies pri memorie:</p>
+<ul>
+<li>Li unesim regul de referenties preveni data-concurrentie. Quo es to? Data-concurrentie eveni quande on lee data con li possibilitá de un scritor al sam data in li sam moment. To eveni sovente in multi-filat programmation.</li>
+<li>Li duesim regul de referenties preveni li misusa de referenties referent a data quel ne existe ( nominat dangling pointers in C ).</li>
+</ul>
+            <div class="bottomnav">
+                <span class="back"><a href="50_ie.html">❮ Precedent</a></span>
+                <span class="next"><a href="52_ie.html">Sequent ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=struct%20Foo%20%7B%0A%20%20%20%20x%3A%20i32%2C%0A%7D%0A%0Afn%20far_alquo(f%3A%20%26mut%20Foo)%20%7B%0A%20%20%20%20f.x%20%2B%3D%201%3B%0A%20%20%20%20%2F%2F%20mutabil%20referentie%20f%20cade%20ci%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20mut%20foo%20%3D%20Foo%20%7B%20x%3A%2042%20%7D%3B%0A%20%20%20%20far_alquo(%26mut%20foo)%3B%0A%20%20%20%20%2F%2F%20nam%20omni%20mutabil%20referenties%20cade%20intra%20%0A%20%20%20%20%2F%2F%20li%20function%20far_alquo.%20Noi%20posse%20crear%20un%20in%20plu.%0A%20%20%20%20far_alquo(%26mut%20foo)%3B%0A%20%20%20%20%2F%2F%20foo%20cade%20ci%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

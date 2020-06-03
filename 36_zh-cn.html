@@ -1,0 +1,54 @@
+<html lang="zh-cn">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Rust 语言之旅 - Result</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_zh-cn.html">Rust 语言之旅</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_zh-cn.html">目录</a></span>
+            </div>
+            <div class="page">
+            <h1>Result</h1>
+            <p>Rust 有一个内置的泛型枚举叫做 <code>Result</code>，它可以让我们返回一个包含失败可能的值。
+这是编程语言进行错误处理的惯用方法。</p>
+<pre><code>enum Result&lt;T,Q&gt;{
+  Ok(T),
+  Err(Q)
+}
+</code></pre>
+<p>注意我们的泛型有多个用逗号分隔的 <em>参数化的类型</em>。</p>
+<p>这个枚举很常见，使用关键字 <code>Ok</code> 和 <code>Err</code> 可以在任何地方创建其实例。</p>
+            <div class="bottomnav">
+                <span class="back"><a href="35_zh-cn.html">❮ 上一页</a></span>
+                <span class="next"><a href="37_zh-cn.html">下一页 ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20do_something_that_might_fail(i%3Ai32)%20-%3E%20Result%3Cf32%2CString%3E%20%7B%0A%20%20%20%20if%20i%20%3D%3D%2042%20%7B%0A%20%20%20%20%20%20%20%20Ok(13.0)%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20Err(String%3A%3Afrom(%22this%20is%20not%20the%20right%20number%22))%20%20%20%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20result%20%3D%20do_something_that_might_fail(12)%3B%0A%0A%20%20%20%20%2F%2F%20match%20%E8%AE%A9%E6%88%91%E4%BC%98%E9%9B%85%E5%9C%B0%E8%A7%A3%E6%9E%84%20Rust%EF%BC%8C%E5%B9%B6%E4%B8%94%E7%A1%AE%E4%BF%9D%E6%88%91%E4%BB%AC%E5%A4%84%E7%90%86%E4%BA%86%E6%89%80%E6%9C%89%E6%83%85%E5%86%B5%EF%BC%81%0A%20%20%20%20match%20result%20%7B%0A%20%20%20%20%20%20%20%20Ok(v)%20%3D%3E%20println!(%22found%20%7B%7D%22%2C%20v)%2C%0A%20%20%20%20%20%20%20%20Err(e)%20%3D%3E%20println!(%22Error%3A%20%7B%7D%22%2Ce)%2C%0A%20%20%20%20%7D%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

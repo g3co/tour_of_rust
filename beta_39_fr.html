@@ -1,0 +1,71 @@
+<html lang="fr">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Gestion peu élégante de Option/Result</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_fr.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_fr.html">Table des matières</a></span>
+            </div>
+            <div class="page">
+            <h1>Gestion peu élégante de Option/Result</h1>
+            <p>Utiliser <code>Option</code> et <code>Result</code> peut être tédieux lorsqu'on souhaite rapidement écrire du code.
+<code>Option</code> et <code>Result</code> ont tout les deux une fonction appelé <code>unwrap</code> qui permet d'obtenir une
+valeur de manière rapide mais peu élégante.
+<code>unwrap</code> va:</p>
+<ol>
+<li><p>Renvoyer la valeur de notre Option ou Result</p></li>
+<li><p>Faire 'paniquer' le code si la valeur de l'énumération est de type None ou Err. Lorsqu'un
+programme Rust panique, il envoie un message d'erreur et s'arrête.</p>
+<p>Ces deux bout de code sont équivalent</p></li>
+</ol>
+<pre><code> my_option.unwrap()
+</code></pre>
+<pre><code> match my_option {
+   Some(v) =&gt; v,
+   None =&gt; panic!("un message d'erreur généré par Rust!")
+ }
+</code></pre>
+<p>De même:</p>
+<pre><code> my_result.unwrap()
+</code></pre>
+<pre><code> match my_result {
+   Ok(v) =&gt; v,
+   Err(e) =&gt; panic!("un message d'erreur généré par Rust!")
+ }
+</code></pre>
+<p>Tu doit être un bon rustacien et utiliser <code>match</code> comme il faut et quand tu peux.</p>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_38_fr.html">❮ Précédent</a></span>
+                <span class="next"><a href="beta_40_fr.html">Suivant ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20do_something_that_might_fail(i%3A%20i32)%20-%3E%20Result%3Cf32%2C%20String%3E%20%7B%0A%20%20%20%20if%20i%20%3D%3D%2042%20%7B%0A%20%20%20%20%20%20%20%20Ok(13.0)%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20Err(String%3A%3Afrom(%22ce%20n%27est%20pas%20le%20bon%20nombre%22))%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20main()%20-%3E%20Result%3C()%2C%20String%3E%20%7B%0A%20%20%20%20%2F%2F%20Concis%20mais%20suppose%20qu%27une%20valeur%20est%20pr%C3%A9sente%20et%20le%20code%20%0A%20%20%20%20%2F%2F%20peut%20vite%20devenir%20illisible.%0A%20%20%20%20let%20v%20%3D%20do_something_that_might_fail(42).unwrap()%3B%0A%20%20%20%20println!(%22trouv%C3%A9%20%7B%7D%22%2C%20v)%3B%0A%20%20%20%20%0A%20%20%20%20%2F%2F%20Le%20programme%20affichera%20le%20mesage%20d%27erreur%20et%20s%27arr%C3%AAtera%0A%20%20%20%20let%20v%20%3D%20do_something_that_might_fail(1).unwrap()%3B%0A%20%20%20%20println!(%22trouv%C3%A9%20%7B%7D%22%2C%20v)%3B%0A%20%20%20%20%0A%20%20%20%20Ok(())%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

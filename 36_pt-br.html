@@ -1,0 +1,57 @@
+<html lang="pt-br">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Um tour por Rust - Result</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_pt-br.html">Um tour por Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_pt-br.html">Índice</a></span>
+            </div>
+            <div class="page">
+            <h1>Result</h1>
+            <p>O Rust possui uma enumeração genérica chamada <code>Result</code> que nos permite retornar um valor que 
+tem a possibilidade de falhar.</p>
+<p>Esta é a maneira idiomática pela qual a linguagem faz a manipulação de erros.</p>
+<pre><code>enum Result&lt;T,Q&gt;{
+  Ok(T),
+  Err(Q)
+}
+</code></pre>
+<p>Observe que os nosso tipos genéricos possuem vários <em>tipos parametrizados</em> separados por
+vírgula.</p>
+<p>Esta enumeração é tão comum que instâncias dela podem ser criadas em qualquer lugar com
+as palavras-chave <code>Ok</code> e <code>Err</code>.</p>
+            <div class="bottomnav">
+                <span class="back"><a href="35_pt-br.html">❮ Anterior</a></span>
+                <span class="next"><a href="37_pt-br.html">Próximo ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20faz_alguma_coisa_que_pode_falhar(i%3Ai32)%20-%3E%20Result%3Cf32%2CString%3E%20%7B%0A%20%20%20%20if%20i%20%3D%3D%2042%20%7B%0A%20%20%20%20%20%20%20%20Ok(13.0)%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20Err(String%3A%3Afrom(%22este%20n%C3%A3o%20%C3%A9%20o%20n%C3%BAmero%20correto%22))%20%20%20%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20result%20%3D%20faz_alguma_coisa_que_pode_falhar(12)%3B%0A%0A%20%20%20%20%2F%2F%20o%20match%20nos%20permite%20desconstruir%20o%20Result%20elegantemente%20%0A%20%20%20%20%2F%2F%20e%20garante%20que%20lidemos%20com%20todos%20os%20casos!%0A%20%20%20%20match%20result%20%7B%0A%20%20%20%20%20%20%20%20Ok(v)%20%3D%3E%20println!(%22encontrei%20%7B%7D%22%2C%20v)%2C%0A%20%20%20%20%20%20%20%20Err(e)%20%3D%3E%20println!(%22Erro%3A%20%7B%7D%22%2C%20e)%2C%0A%20%20%20%20%7D%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

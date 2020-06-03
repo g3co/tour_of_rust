@@ -1,0 +1,50 @@
+<html lang="fr">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Appel de Méthodes</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_fr.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_fr.html">Table des matières</a></span>
+            </div>
+            <div class="page">
+            <h1>Appel de Méthodes</h1>
+            <p>A la différence des fonctions que nous avons vu précédemment, les méthodes sont
+des fonctions associés à un type de donnée spécifique.</p>
+<p><strong>méthodes statiques</strong> — méthodes qui appartiennent au type même et sont appelées avec l'opérateur <code>::</code></p>
+<p><strong>méthodes d'instance</strong> — méthodes qui appartiennent à l'instance d'un type et sont appelées avec l'opérateur <code>.</code></p>
+<p>Nous verrons comment créer tes propres méthodes dans de futures chapitres.</p>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_23_fr.html">❮ Précédent</a></span>
+                <span class="next"><a href="beta_25_fr.html">Suivant ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20%2F%2F%20On%20utilise%20une%20m%C3%A9thode%20statique%20pour%20cr%C3%A9er%20une%20instance%20de%20String%0A%20%20%20%20let%20s%20%3D%20String%3A%3Afrom(%22Hello%20world!%22)%3B%0A%20%20%20%20%2F%2F%20On%20utilise%20ici%20une%20m%C3%A9thode%20directement%20sur%20l%27instance%0A%20%20%20%20println!(%22%7B%7D%20contient%20%7B%7D%20caract%C3%A8res.%22%2C%20s%2C%20s.len())%3B%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

@@ -1,0 +1,63 @@
+<html lang="fr">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Mémoire</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_fr.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_fr.html">Table des matières</a></span>
+            </div>
+            <div class="page">
+            <h1>Mémoire</h1>
+            <p>Un programme Rust possède 3 régions de mémoire où les données sont stockées:</p>
+<ul>
+<li><strong>data memory (le segment de données)</strong> - Pour les données de taille fixe et <strong>statiques</strong> (i.e toujours
+disponible pendant la vie du programme). Par exemple, considère le texte "Hello World!"
+de ton tout premier programme Rust, les bytes représentant ce texte sont lu à un seul endroit
+et par conséquant ils sont placés dans cette région. Le compilateur utilise de
+nombreuses optimisations pour ce type de données, elles sont généralement
+considérées très rapide d'utilisation car leur position en mémoire est connue
+et fixe.</li>
+<li><strong>stack memory (la pile)</strong> - Pour les données qui sont déclarées comme variables dans une fonction.
+La position de cette mémoire ne change jamais pendant la durée d'appel de cette fonction,
+par conséquant les compilateurs peuvent optimiser le code pour rendre l'accès des données
+sur la pile très rapide.</li>
+<li><strong>heap memory (le tas)</strong> - Pour les données qui sont créées lorsque l'application est en train de s'exécuter. 
+Les données dans cette région peuvent être ajoutées, déplacées, supprimées, redimenssionnées, etc.
+A cause de sa nature dynamique c'est généralement considéré plus lent d'utilisation que la pile, mais
+donne plus de contrôle sur l'utilisation de la mémoire.
+On appele <strong>allocation</strong> le fait d'ajouter des données à cette région et
+<strong>désallocation</strong> le fait de les supprimer.</li>
+</ul>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_24_fr.html">❮ Précédent</a></span>
+                <span class="next"><a href="beta_26_fr.html">Suivant ❯</a></span>
+            </div>
+            </div>
+            <div class="code"><center><br><br><br><br><br><img src="ferris.png"><br><br><br><br><br></center></div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

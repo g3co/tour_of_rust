@@ -1,0 +1,61 @@
+<html lang="pt-br">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Um tour por Rust - Memória</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_pt-br.html">Um tour por Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_pt-br.html">Índice</a></span>
+            </div>
+            <div class="page">
+            <h1>Memória</h1>
+            <p>Os programas em Rust têm 3 regiões de memória onde os dados são armazenados:</p>
+<ul>
+<li><strong>data memory (memória de dados)</strong> - Para dados com tamanho fixo e <strong>estático</strong> (ou seja, 
+sempre disponíveis durante a vida útil do programa). Considere um texto em seu programa 
+(por exemplo, "Olá, mundo!"), os bytes desse texto são somente lidos, então eles são 
+colocados nesta região. Compiladores fazem muitas otimizações esse tipo de dados, eles 
+geralmente são considerados muito rápidos de usar pois onde estão armazenados são 
+conhecidos e fixos.</li>
+<li><strong>stack memory (memória de pilha)</strong> - Para dados declarados como variáveis dentro de uma
+função. O local dessa memória nunca muda durante a duração de uma chamada de função, assim
+os compiladores podem otimizar o código e por isso a pilha de dados é muito rápida de 
+acessar.</li>
+<li><strong>heap memory</strong> - Para dados criados enquanto o aplicativo está em execução. Os dados 
+nessa região podem ser adicionados, movidos, removidos, redimensionados etc. Por causa da 
+sua natureza dinâmica geralmente é considerado mais lenta, mas permite usos de memória muito 
+mais criativas. Quando dados são adicionados a essa região, chamamos de <strong>alocação</strong>. Quando 
+os dados são removidos desta seção, chamamos de <strong>desalocação</strong>.</li>
+</ul>
+            <div class="bottomnav">
+                <span class="back"><a href="24_pt-br.html">❮ Anterior</a></span>
+                <span class="next"><a href="26_pt-br.html">Próximo ❯</a></span>
+            </div>
+            </div>
+            <div class="code"><center><br><br><br><br><br><img src="ferris.png"><br><br><br><br><br></center></div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

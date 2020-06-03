@@ -1,0 +1,56 @@
+<html lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour of Rust - String Literals</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_en.html">Tour of Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_en.html">Table of Contents</a></span>
+            </div>
+            <div class="page">
+            <h1>String Literals</h1>
+            <p>String literals are always Unicode</p>
+<p>String literals type are <code>&amp;'static str</code></p>
+<ul>
+<li><code>&amp;</code> meaning that its referring to a place in memory, and it lacks a <code>&amp;mut</code> meaning that the compiler will not allow modification</li>
+<li><code>'static</code> meaning the string data will be available till the end of our program (it never drops)</li>
+<li><code>str</code> means that it points to a sequence of bytes that are always valid <strong>utf-8</strong></li>
+</ul>
+<p>Memory details:</p>
+<ul>
+<li>likely the LLVM compiler will put your string in the data segment of your program memory</li>
+</ul>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_chapter_6_en.html">❮ Previous</a></span>
+                <span class="next"><a href="beta_60_en.html">Next ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20let%20a%3A%20%26'static%20str%20%3D%20%22hi%20%F0%9F%A6%80%22%3B%0A%20%20%20%20println!(%22%7B%7D%20%7B%7D%22%2C%20a%2C%20a.len())%3B%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

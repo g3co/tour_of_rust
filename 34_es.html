@@ -1,0 +1,52 @@
+<html lang="es">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Ausencia de Valor</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_es.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_es.html">Tabla de Contenidos</a></span>
+            </div>
+            <div class="page">
+            <h1>Ausencia de Valor</h1>
+            <p>En otros lenguajes de programación, la palabra reservada <code>null</code> se utiliza para representar la ausencia de valor.
+Esto crea ciertas dificultades en dichos lenguajes, ya que aparece la posibilidad de que nuestro programa falle al
+interactuar con una variable o campo.</p>
+<p>En Rust no hay <code>null</code>, pero eso no quiere decir que ignore la importancia de representar la ausencia de valor.
+Se puede representar usando herramientas que ya conocemos.</p>
+<p>Este patrón de proporcionar una alternativa nula <code>None</code> para uno o muchos valores alternativos es muy común en
+Rust debido a su falta de un valor <code>null</code>. Los tipos genéricos ayudan a resolver este desafío.</p>
+            <div class="bottomnav">
+                <span class="back"><a href="33_es.html">❮ Anterior</a></span>
+                <span class="next"><a href="35_es.html">Siguiente ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=enum%20Item%20%7B%0A%20%20%20%20Inventory(String)%2C%0A%20%20%20%20%2F%2F%20None%20represents%20the%20absence%20of%20an%20item%0A%20%20%20%20None%2C%0A%7D%0A%0Astruct%20BagOfHolding%20%7B%0A%20%20%20%20item%3A%20Item%2C%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

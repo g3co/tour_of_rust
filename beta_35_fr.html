@@ -1,0 +1,53 @@
+<html lang="fr">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Option</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_fr.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_fr.html">Table des matières</a></span>
+            </div>
+            <div class="page">
+            <h1>Option</h1>
+            <p>Le langage Rust met à disposition une énumération générique <code>Option</code> qui permet de
+représenter des valeurs pouvant être nulles sans utiliser <code>null</code>.</p>
+<pre><code>enum Option&lt;T&gt;{
+  Some(T),
+  None
+}
+</code></pre>
+<p>Ce type d'énumération est tellement commun qu'on peut créer une instance de ce énumération directement avec <code>Some</code> et <code>None</code>.</p>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_34_fr.html">❮ Précédent</a></span>
+                <span class="next"><a href="beta_36_fr.html">Suivant ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=%2F%2F%20Une%20structure%20partiellement%20d%C3%A9finie.%0Astruct%20BagOfHolding%3CT%3E%20%7B%0A%20%20%20%20%2F%2F%20Le%20param%C3%A8tre%20T%20sera%20d%C3%A9finie%20lors%20de%20l%27instanciation%20de%20la%20structure.%0A%20%20%20%20item%3A%20Option%3CT%3E%2C%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20%2F%2F%20Note%3A%20La%20structure%20BagOfHolding%20contiendra%20%C3%A9ventuellement%20un%20%C3%A9l%C3%A9ment%0A%20%20%20%20%2F%2F%20de%20type%20i32%2C%20mais%20ne%20contient%20rien%20pour%20le%20moment!%0A%20%20%20%20%2F%2F%20Nous%20devons%20sp%C3%A9cifier%20le%20type%20car%20autrement%20Rust%20ne%20le%20conna%C3%AEtrais%20pas.%0A%20%20%20%20let%20i32_bag%20%3D%20BagOfHolding%3A%3A%3Ci32%3E%20%7B%20item%3A%20None%20%7D%3B%0A%0A%20%20%20%20if%20i32_bag.item.is_none()%20%7B%0A%20%20%20%20%20%20%20%20println!(%22il%20n%27y%20a%20rien%20dans%20le%20sac!%22)%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20println!(%22il%20y%20a%20quelque%20chose%20dans%20le%20sac!%22)%0A%20%20%20%20%7D%0A%0A%20%20%20%20let%20i32_bag%20%3D%20BagOfHolding%3A%3A%3Ci32%3E%20%7B%20item%3A%20Some(42)%20%7D%3B%0A%0A%20%20%20%20if%20i32_bag.item.is_some()%20%7B%0A%20%20%20%20%20%20%20%20println!(%22il%20y%20a%20quelque%20chose%20dans%20le%20sac!%22)%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20println!(%22il%20n%27y%20a%20rien%20dans%20le%20sac!%22)%0A%20%20%20%20%7D%0A%0A%20%20%20%20%2F%2F%20Avec%20%27match%27%2C%20nous%20pouvons%20d%C3%A9construire%20notre%20%27Option%27%20%C3%A9l%C3%A9gamment%20et%0A%20%20%20%20%2F%2F%20s%27assurer%20que%20nous%20prenions%20en%20compte%20tous%20les%20cas.%0A%20%20%20%20match%20i32_bag.item%20%7B%0A%20%20%20%20%20%20%20%20Some(v)%20%3D%3E%20println!(%22il%20y%20%7B%7D%20dans%20le%20sac!%22%2C%20v)%2C%0A%20%20%20%20%20%20%20%20None%20%3D%3E%20println!(%22le%20sac%20est%20vide%22)%2C%0A%20%20%20%20%7D%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

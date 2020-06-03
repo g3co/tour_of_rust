@@ -1,0 +1,52 @@
+<html lang="fr">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour de Rust - Variables</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="index_fr.html">Tour de Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_fr.html">Table des matières</a></span>
+            </div>
+            <div class="page">
+            <h1>Variables</h1>
+            <p>Les variables sont déclarées en utilisant le mot clé <strong>let</strong>.</p>
+<p>Lorsqu'on assignera une valeur, Rust sera capable d'inférer le type de la variable (99% du
+temps). Si pour quelque raison que ce soit cela n'est pas possible, on peut toujours ajouter le type
+à la déclaration de la variable.</p>
+<p>Remarque comment on peut déclarer la même variable plusieurs fois. Ceci est appelé <strong>shadowing</strong>
+et le type peut être modifié pour les prochaines références à ce nom de variable.</p>
+<p>Les nom de variables sont toujours <code>snake_case</code></p>
+            <div class="bottomnav">
+                <span class="back"><a href="02_fr.html">❮ Précédent</a></span>
+                <span class="next"><a href="04_fr.html">Suivant ❯</a></span>
+            </div>
+            </div>
+            <div class="code">
+            <iframe width="100%" src="https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20%2F%2F%20rust%20inf%C3%A8re%20le%20type%20de%20la%20variable%20x%0A%20%20%20%20let%20x%20%3D%2013%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20x)%3B%0A%0A%20%20%20%20%2F%2F%20on%20peut%20%C3%A9galement%20sp%C3%A9cifier%20explicitement%20le%20type%0A%20%20%20%20let%20x%3A%20f64%20%3D%203.14159%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20x)%3B%0A%0A%20%20%20%20%2F%2F%20on%20peut%20aussi%20d%C3%A9clarer%20une%20variable%20et%20l%27initialiser%20plus%20tard%2C%20%0A%20%20%20%20%2F%2F%20bien%20qu%27ici%20il%20n%27y%20ait%20pas%20d%27int%C3%A9r%C3%AAt%20%C3%A0%20utiliser%20deux%20lignes%0A%20%20%20%20let%20x%3B%0A%20%20%20%20x%20%3D%200%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20x)%3B%0A%7D%0A" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            </div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>

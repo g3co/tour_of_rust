@@ -1,0 +1,53 @@
+<html lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155199982-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-155199982-1');
+        </script>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+        <title>Tour of Rust - What is utf-8</title>
+        <link rel="stylesheet" href="tour.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.0.3/build/styles/pojoaque.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    </head>
+    <body>
+        <div class="tour">
+            <div class="header">
+                <span class="title"><a href="00_en.html">Tour of Rust</a></span>
+                <span class="nav">
+                <span class="toc"><a href="TOC_en.html">Table of Contents</a></span>
+            </div>
+            <div class="page">
+            <h1>What is utf-8</h1>
+            <p>As more languages were used on computers, the world needed to represent more text characters
+than ASCII allowed (1 byte only allowed 256 characters). </p>
+<p><strong>utf-8</strong> was introduced with a variable byte length of 1-4 bytes greatly increasing the range of possible characters.</p>
+<p>An advantage of variable sized characters is text did not have unnecessary bytes for very common ASCII (only requiring 1 byte still in <strong>utf-8</strong>).</p>
+<p>A downside of variable sized characters is that character lookup can no longer be done quickly 
+(<strong>O(1)</strong> constant time) with a simple indexing (e.g. <code>my_text[3]</code> to get the 4th character). It's possible that the 
+proceeding characters could have variable widths that, altering where the 4th character actually begins in the sequence of bytes.</p>
+<p>Instead we must iterate through a <strong>utf-8</strong> byte sequence to understand where the unicode characters actually begin (<strong>O(n)</strong> linear time).</p>
+<p>Ferris: "I'm mostly just happy to have <strong>utf-8</strong> for representing emojis of my underwater friends."</p>
+<p><span class="emoji">🐠🐙🐟🐬🐋</span></p>
+            <div class="bottomnav">
+                <span class="back"><a href="beta_59_en.html">❮ Previous</a></span>
+                <span class="next"><a href="beta_61_en.html">Next ❯</a></span>
+            </div>
+            </div>
+            <div class="code"><center><br><br><br><br><br><img src="ferris.png"><br><br><br><br><br></center></div>
+        </div>
+    </body>
+    <script src="/tour.js"></script>
+</html>
